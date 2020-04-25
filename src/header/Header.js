@@ -3,7 +3,7 @@ import './header.scss';
 import Faliniano from '../img/faliniano.png';
 import Add from '../add/Add';
 import List from '../list/List';
-//import Tabletop from 'tabletop';
+import Tabletop from 'tabletop';
 
 
 class Header extends Component {
@@ -21,14 +21,14 @@ class Header extends Component {
     this._isMounted = true;
 
     this.getInfo = () => {
-      // Tabletop.init({
-      //   key: 'https://docs.google.com/spreadsheets/d/1zRj1fS3HUlEiPyRwuusk9SjVBFSloOkRAG0ETt_EAic/edit#gid=0',
-      //   callback: googleData => {
-      //     this.setState({ datas: googleData.sort() });
+       Tabletop.init({
+         key: 'https://docs.google.com/spreadsheets/d/1zRj1fS3HUlEiPyRwuusk9SjVBFSloOkRAG0ETt_EAic/edit#gid=0',
+         callback: googleData => {
+           this.setState({ datas: googleData.sort() });
 
-      //   },
-      //   simpleSheet: true
-      // })
+         },
+         simpleSheet: true
+       })
       let storage = localStorage.getItem('list');
       let parse_store = JSON.parse(storage);
       this.setState({ datas: parse_store });
